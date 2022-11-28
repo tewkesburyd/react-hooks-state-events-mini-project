@@ -1,9 +1,20 @@
 import React from "react";
+import Task from "./Task";
 
-function TaskList() {
+function TaskList({tasks, handleDeleteClick}) {
+
+  const createTasks = tasks.map(task => {
+   return (
+    <Task 
+      key={task.text} 
+      task={task} 
+      handleDeleteClick={handleDeleteClick}
+    />
+    )})
+
   return (
     <div className="tasks">
-      {/* display a list of tasks using Task component */}
+      {createTasks}
     </div>
   );
 }
